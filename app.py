@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import binascii as ba
 import os
-from skimage import data, io, filters
+
 from io import BytesIO
 from PIL import Image
 import matplotlib.pyplot as plt
