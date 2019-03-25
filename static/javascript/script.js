@@ -1,6 +1,6 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-ctx.lineWidth=10;
+ctx.lineWidth=3;
 var width = canvas.width;
 var height = canvas.height;
 var curX, curY, prevX, prevY;
@@ -33,6 +33,29 @@ window.onload = function(e){
     reOffset();
 }
 
+window.onkeypress = function(e){
+    e = e || window.event;
+    var charCode = e.which || e.keyCode;
+    var charStr = String.fromCharCode(charCode);
+
+    if (charStr == "-"){
+        reduce_pixel();
+    } else if (charStr == "+") {
+        add_pixel();
+    }
+}
+function add_pixel(){
+    ctx.lineWidth += 1;
+}
+
+function reduce_pixel(){
+    if (ctx.lineWidth == 1){
+        ctx.lineWidth = 1;
+    }
+    else{
+        ctx.lineWidth -= 1;
+    }
+}
 var $mouse = $('#mouse');
 $("#canvas").mousemove(function (e) {
     handleMouseMove(e);
@@ -50,6 +73,7 @@ function handleMouseMove(e) {
     $mouse.text('Mouse position: ' + mouseX + ' / ' + mouseY);
 }
 // pencil tool
+
 
 function pencil() {
 
