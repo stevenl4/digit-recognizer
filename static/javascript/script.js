@@ -27,6 +27,7 @@ window.onresize = function (e) {
     reOffset();
 }
 window.onload = function(e){
+    pencil();
     e.preventDefault();
     e.stopPropagation();
     reOffset();
