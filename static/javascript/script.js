@@ -1,6 +1,6 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-ctx.lineWidth=3;
+ctx.lineWidth=20;
 var width = canvas.width;
 var height = canvas.height;
 var curX, curY, prevX, prevY;
