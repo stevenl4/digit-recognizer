@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+    <body onload="pencil()"></body>
+    {#    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">#}
+    <table>
+        <tr>
+            <td>
+                <canvas id="paint" width="300" height="300"
+                        style="border: 5px solid #000000; position: relative; left:5px; top:5px;"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <button type="button" style="height: 25px; width: 80px;" onclick="pencil()">
+                    Draw
+                </button>
+
+                <button type="button" style="height: 25px; width: 80px;" onclick="reset()">
+                    Reset
+                </button>
+
+                <button type="button" style="height: 25px; width: 80px;" onclick="submit()">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src=" {{ url_for('static', filename='javascript/script.js') }}"></script>
+{% endblock %}

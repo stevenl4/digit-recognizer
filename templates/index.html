@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <section class="section">
+        <div class="container">
+
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical">
+                    <div class="tile">
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                {% if data %}
+                                    <div class="d-flex justify-content-center">
+                                        <h2 class="title">Here's what you drew:</h2>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <img src="data:image/png;base64,{{ data['image_blob'] }}" width="300"
+                                             height="300"
+                                             style="border: 1px solid #000000; position: relative;"/>
+                                    </div>
+                                    <br>
+
+                                    <div class="card">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item" onclick="pencil()">
+                                                <button class="btn btn-success btn-block"
+                                                        onclick="window.location.href='{{ url_for('index') }}'">
+                                                    Try again
+                                                </button>
+
+                                        </ul>
+                                    </div>
+
+
+
+
+                                {% else %}
+
+                                    <div class="d-flex justify-content-center">
+                                        <h2 class="title">Draw your digit here (0-9):</h2>
+                                    </div>
+                                    <div style="text-align:center;">
+                                        <h4 id="mouse">Move the mouse around the canvas.</h4>
+                                        <canvas id="canvas" width="300" height="300"
+                                                style="border: 1px solid #000000; position: relative;">
+                                            canvas is not supported by this browser
+                                        </canvas>
+                                    </div>
+                                    <br>
+                                    <div class="card">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item" onclick="pencil()">
+                                                <button class="btn btn-success btn-block" onclick="pencil()">
+                                                    Draw
+                                                </button>
+                                            </li>
+                                            <li class="list-group-item" onclick="reset()">
+                                                <button class="btn btn-danger btn-block" onclick="reset()">
+                                                    Reset
+                                                </button>
+                                            </li>
+                                            <li class="list-group-item" onclick="submit()">
+                                                <button class="button btn-primary btn-block" onclick="submit()">
+                                                    Submit
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+
+
+
+
+                                {% endif %}
+
+                                <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+{#                                <script src="{{ url_for('static', filename='javascript/test.js') }}"></script>#}
+                                <script src=" {{ url_for('static', filename='javascript/script.js') }}"></script>
+                            </div>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                {% if data %}
+                                    <h3>The prediction is...</h3>
+
+                                    <ul>
+                                        <li><h1> {{ data['result'] }}</li></h1>
+                                    </ul>
+
+                                {% endif %}
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
