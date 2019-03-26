@@ -28,6 +28,7 @@ window.onresize = function (e) {
 }
 window.onload = function(e){
     pencil();
+    display_linewidth();
     e.preventDefault();
     e.stopPropagation();
     reOffset();
@@ -43,6 +44,11 @@ window.onkeypress = function(e){
     } else if (charStr == "+") {
         add_pixel();
     }
+    display_linewidth();
+}
+
+function display_linewidth(){
+    $("#linewidth").text('Current linewidth: ' + ctx.lineWidth);
 }
 function add_pixel(){
     ctx.lineWidth += 1;
@@ -70,7 +76,7 @@ function handleMouseMove(e) {
     mouseX = parseInt(e.clientX - cnvBox.left);
     mouseY = parseInt(e.clientY - cnvBox.top);
     // report the mouse position
-    $mouse.text('Mouse position: ' + mouseX + ' / ' + mouseY);
+    $("#mouse").text('Mouse position: ' + mouseX + ' / ' + mouseY);
 }
 // pencil tool
 

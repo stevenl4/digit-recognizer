@@ -17,8 +17,14 @@ app.config.update(
     ENV='production'
 )
 
+# calls to azure models
+
+# SKlearn logistical regression model
 azure_ml_service_uri = 'http://52.151.241.36:80/score'
 
+# keras NN model
+azure_keras_uri = 'http://20.42.28.92:80/score'
+azure_keras_key = 'Bfmr08Q8Bae0AjRtpcvaCwe7YcFQOijP'
 ###############################################
 # Error Handling
 ################################################
@@ -65,14 +71,23 @@ def results(image_id=None):
                     # Prepare the digit for analysis
                     np_array = util.convert_to_28x28_image(result[key]).flatten()
 
-                    # Call service in Azure to predict
+                    # Call service in Azure SK LR model to predict
                     headers = {'Content-Type': 'application/json'}
                     body = "{\"data\": [" + str(list(np_array)) + "]}"
+
                     resp = requests.post(azure_ml_service_uri,
                                          data=body,
                                          headers=headers)
                     if resp.status_code == 200:
-                        data['result'] = resp.text
+                        data['sk_lr_result'] = resp.text
+
+                    # Call service in Azure Keras NN model to predict
+                    headers['Authorization'] = 'Bearer ' + azure_keras_key
+                    resp = requests.post(azure_keras_uri,
+                                        data=body,
+                                        headers=headers)
+                    if resp.status_code == 200:
+                        data['keras_nn_result'] = resp.text
 
                 else:
                     data[key] = result[key]

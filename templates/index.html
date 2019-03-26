@@ -40,7 +40,8 @@
                                         <h2 class="title">Draw your digit here (0-9):</h2>
                                     </div>
                                     <div style="text-align:center;">
-                                        <h4 id=mouse>Move the mouse around the canvas.</h4>
+                                        <h4 id="mouse">Move the mouse around the canvas.</h4>
+                                        <h5 id="linewidth">Display linewidth</h5>
                                         <canvas id="canvas" width="300" height="300"
                                                 style="border: 1px solid #000000; position: relative;
                                                 cursor:crosshair;">
@@ -83,12 +84,21 @@
                         <div class="tile is-parent">
                             <article class="tile is-child box">
                                 {% if data %}
-                                    <h3>The prediction is...</h3>
-
+                                    <h1>The prediction is...</h1>
+                                    <br>
                                     <ul>
-                                        <li><h1> {{ data['result'] }}</li></h1>
+                                        <li><h2> SK-Logistical Regression {{ data['sk_lr_result'] }}</li></h1>
+                                        <br>
+                                        <li><h2> Keras-Neural Net {{ data['keras_nn_result'] }}</li></h1>
                                     </ul>
-
+                                {% else %}
+                                    <h1>Instructions:</h1>
+                                    <br>
+                                    <ul style="list-style-type: circle; list-style-position: inside;">
+                                        <li> Draw a single digit between 0 - 9 </li>
+                                        <li> Click Submit to run the prediction algorithms</li>
+                                        <li> Use "+" and "-" to change the pencil tool's line width</li>
+                                    </ul>
                                 {% endif %}
                             </article>
                         </div>
