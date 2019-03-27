@@ -52,17 +52,17 @@
                                     <div class="card">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item" onclick="pencil()">
-                                                <button class="btn btn-success btn-block" onclick="pencil()">
+                                                <button class="btn btn-success btn-block">
                                                     Draw
                                                 </button>
                                             </li>
                                             <li class="list-group-item" onclick="reset()">
-                                                <button class="btn btn-danger btn-block" onclick="reset()">
+                                                <button class="btn btn-danger btn-block">
                                                     Reset
                                                 </button>
                                             </li>
                                             <li class="list-group-item" onclick="submit()">
-                                                <button class="button btn-primary btn-block" onclick="submit()">
+                                                <button class="button btn-primary btn-block">
                                                     Submit
                                                 </button>
                                             </li>
@@ -95,8 +95,15 @@
                                     <h1>Instructions:</h1>
                                     <br>
                                     <ul style="list-style-type: circle; list-style-position: inside;">
-                                        <li> Draw a single digit between 0 - 9 </li>
+                                        <li> Draw a single digit between 0 - 9  </li>
                                         <li> Click Submit to run the prediction algorithms</li>
+
+                                    </ul>
+                                    <br>
+
+                                    <h1>Tips:</h1>
+                                    <ul style="list-style-type: circle; list-style-position: inside;">
+                                        <li>drawing closer to the center with thicker lines will yield more accurate predictions</li>
                                         <li> Use "+" and "-" to change the pencil tool's line width</li>
                                     </ul>
                                 {% endif %}
