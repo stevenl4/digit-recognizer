@@ -2,11 +2,14 @@
 {% block body %}
 <section class="section">
 	<div class="container">
-		<div class="tile box">
-			<ul>
-				<li>Model is trained using Azure ML LogisticalRegression</li>
-
-			</ul>
+		<div class="tile is-vertical">
+            <h3> All models are trained using the <a href="http://yann.lecun.com/exdb/mnist/">MNIST digit dataset. </a></h3>
+            <h5> The following models are currently deployed using Azure:</h5>
+            <br>
+			<ol style="list-style-position: inside;">
+                <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"> Scikit Learn - Logistical Regression</a></li>
+                <li><a href="https://keras.io/"> Keras Deep Neural Network</a></li>
+			</ol>
 		</div>
 	</div>
 </section>
