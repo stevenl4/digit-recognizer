@@ -30,6 +30,6 @@ scikit-image==0.14.2
 scipy==1.2.1
 six==1.12.0
 toolz==0.9.0
-urllib3==1.24.1
+urllib3==1.26.5
 Werkzeug==0.15.1
 whitenoise==4.1.2
